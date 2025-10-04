@@ -1,0 +1,55 @@
+
+-- Users jadvali
+CREATE TABLE users (
+    chat_id BIGINT PRIMARY KEY,
+    full_name TEXT,
+    phone TEXT,
+    address TEXT,
+    state TEXT,
+    course TEXT,
+    course_time TEXT,
+    created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Kurslar jadvali
+CREATE TABLE courses (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    duration TEXT NOT NULL,
+    price TEXT NOT NULL,
+    description TEXT,
+    details_url TEXT
+);
+
+-- Kurs vaqtlari
+CREATE TABLE course_times (
+    id SERIAL PRIMARY KEY,
+    course_id INTEGER REFERENCES courses(id),
+    time_slot TEXT NOT NULL
+);
+
+-- Ro'yxatdan o'tganlar
+CREATE TABLE registrations (
+    id SERIAL PRIMARY KEY,
+    user_id BIGINT NOT NULL,
+    course_id INTEGER REFERENCES courses(id),
+    full_name TEXT NOT NULL,
+    phone TEXT NOT NULL,
+    address TEXT NOT NULL,
+    course_time TEXT NOT NULL,
+    reg_date TIMESTAMP DEFAULT NOW(),
+    status TEXT DEFAULT 'pending'
+);
+
+-- Namuna ma'lumotlar
+INSERT INTO courses (name, duration, price, description, details_url) VALUES
+('Web dasturlash', '3 oy', '1 500 000 soʻm', 'Full stack web dasturlash kursi', 'https://tezbilim.uz/web'),
+('Grafik dizayn', '2 oy', '1 200 000 soʻm', 'Photoshop va Illustrator asoslari', 'https://tezbilim.uz/design'),
+('Ingliz tili', '6 oy', '1 800 000 soʻm', 'Boshlangʻich darajadan IELTS gacha', 'https://tezbilim.uz/english');
+
+INSERT INTO course_times (course_id, time_slot) VALUES
+(1, 'Dushanba/Chorshanba/Juma, 9:00-11:00'),
+(1, 'Seshanba/Payshanba/Shanba, 14:00-16:00'),
+(2, 'Dushanba/Chorshanba, 10:00-12:00'),
+(3, 'Har kuni, 8:00-10:00'),
+(3, 'Har kuni, 18:00-20:00');
