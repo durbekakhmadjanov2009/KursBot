@@ -178,7 +178,7 @@ public class TezCourseBot extends TelegramLongPollingBot {
             📖 <b>Tavsif:</b> %s
             🔗 <b>Batafsil:</b> %s
             
-            🚀 Stanford School Chortoq bilan bilim oling! Ro'yxatdan o'tish uchun pastdagi tugmani bosing!
+            🚀 Bizning oquv markaz bilan bilim oling! Ro'yxatdan o'tish uchun pastdagi tugmani bosing!
             """,
                 course.getName(),
                 course.getDuration(),
@@ -281,7 +281,7 @@ public class TezCourseBot extends TelegramLongPollingBot {
         SendMessage message = SendMessage.builder()
                 .chatId(chatId.toString())
                 .text("""
-                    🎉 <b>Stanford School Chortoq rasmiy botiga xush kelibsiz!</b> 🎉
+                    🎉 <b>Bizning oquv markaz rasmiy botiga xush kelibsiz!</b> 🎉
                     
                     📚 Chortoq shahridagi eng zamonaviy ta'lim markazi bilan bilim oling!
                     Quyidagi menyudan kerakli bo'limni tanlang: 👇""")
@@ -416,7 +416,7 @@ public class TezCourseBot extends TelegramLongPollingBot {
         SendMessage message = SendMessage.builder()
                 .chatId(chatId.toString())
                 .text("""
-                    📍 <b>Stanford School filialini tanlang:</b>
+                    📍 <b>Oquv markaz filialini tanlang:</b>
                     Chortoq yoki boshqa filiallardan eng qulayini tanlang! 👇""")
                 .parseMode("HTML")
                 .replyMarkup(markup)
@@ -459,7 +459,7 @@ public class TezCourseBot extends TelegramLongPollingBot {
                 .chatId(chatId.toString())
                 .text("""
                     ⏰ <b>Kurs vaqtini tanlang:</b>
-                    Stanford School darslari uchun qulay vaqtni tanlang! 👇""")
+                    Oquv markaz darslari uchun qulay vaqtni tanlang! 👇""")
                 .parseMode("HTML")
                 .replyMarkup(markup)
                 .build();
@@ -514,7 +514,7 @@ public class TezCourseBot extends TelegramLongPollingBot {
 
     private void completeRegistration(Long chatId) throws SQLException {
         sendText(chatId, """
-            🎉 <b>Tabriklaymiz!</b> Siz Stanford School Chortoq kurslariga muvaffaqiyatli ro'yxatdan o'tdingiz! 🥳
+            🎉 <b>Tabriklaymiz!</b> Siz Oquv markaziga kurslariga muvaffaqiyatli ro'yxatdan o'tdingiz! 🥳
             📬 Tez orada siz bilan bog'lanamiz.""");
 
         User user = dbHandler.getUser(chatId);
@@ -551,7 +551,7 @@ public class TezCourseBot extends TelegramLongPollingBot {
 
     private void sendInfo(Long chatId) {
         sendText(chatId, """
-            🏫 <b>Stanford School Chortoq haqida:</b>
+            🏫 <b>Oquv markaz haqida:</b>
             
             Chortoq shahridagi eng nufuzli ta'lim markazi sifatida biz yuqori sifatli ta'lim va zamonaviy o'qitish usullarini taklif qilamiz. 
             Tajribali o'qituvchilarimiz va qulay muhitimiz bilan o'quvchilarimizning bilimlarini oshirishga yordam beramiz.
